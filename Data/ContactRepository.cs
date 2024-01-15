@@ -33,7 +33,7 @@ namespace ContactHub.Data
             contact.Id = Guid.NewGuid();
             contact.CreatedOn = DateTime.Now;
 
-            await _db.AddAsync(contact);
+            await _db.Contacts.AddAsync(contact);
             await _db.SaveChangesAsync();
             return contact.Id;
         }
@@ -50,7 +50,7 @@ namespace ContactHub.Data
 
         public async Task DeleteAsync(Contact contact)
         {
-            _db.Remove(contact);
+            _db.Contacts.Remove(contact);
             await _db.SaveChangesAsync();
         }
     }
